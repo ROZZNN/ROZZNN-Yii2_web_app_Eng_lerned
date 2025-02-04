@@ -134,8 +134,8 @@ class SiteController extends Controller
         $model = new \app\models\RegistrationForm();
     
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
-                // form inputs are valid, do something here
+            if ($model->userRegister()) {
+                
                 return;
             }
         }

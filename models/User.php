@@ -15,6 +15,7 @@ use Yii;
  * @property string $about
  * @property int $id_img
  * @property int $id_role
+ * @property string|null $auth_key
  *
  * @property BookUsers[] $bookUsers
  * @property Books[] $books
@@ -41,7 +42,7 @@ class User extends \yii\db\ActiveRecord
             [['login', 'email', 'password', 'id_title', 'about', 'id_img', 'id_role'], 'required'],
             [['id_title', 'id_img', 'id_role'], 'integer'],
             [['about'], 'string'],
-            [['login', 'email', 'password'], 'string', 'max' => 255],
+            [['login', 'email', 'password', 'auth_key'], 'string', 'max' => 255],
             [['login', 'email', 'password'], 'unique', 'targetAttribute' => ['login', 'email', 'password']],
             [['id_title'], 'exist', 'skipOnError' => true, 'targetClass' => Title::class, 'targetAttribute' => ['id_title' => 'id']],
             [['id_role'], 'exist', 'skipOnError' => true, 'targetClass' => Role::class, 'targetAttribute' => ['id_role' => 'id']],
@@ -63,6 +64,7 @@ class User extends \yii\db\ActiveRecord
             'about' => 'About',
             'id_img' => 'Id Img',
             'id_role' => 'Id Role',
+            'auth_key' => 'Auth Key',
         ];
     }
 

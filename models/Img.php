@@ -53,4 +53,8 @@ class Img extends \yii\db\ActiveRecord
     {
         return $this->hasMany(User::class, ['id_img' => 'id']);
     }
+    public static function getIdImg(int $id): string
+    {
+        return self::findOne(['id' => $id])->route;
+    }
 }

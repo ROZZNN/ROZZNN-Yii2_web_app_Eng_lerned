@@ -53,4 +53,8 @@ class Title extends \yii\db\ActiveRecord
     {
         return $this->hasMany(User::class, ['id_title' => 'id']);
     }
+    public static function getIdTitle(string $title): int
+    {
+        return self::findOne(['title' => $title])->id;
+    }
 }
